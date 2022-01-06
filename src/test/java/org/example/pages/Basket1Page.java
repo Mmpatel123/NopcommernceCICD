@@ -5,18 +5,37 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class Basket1Page extends DriverManager {
-    @FindBy(xpath = "//*[@class='header-menu']/ul[1]/li[2]")
-    private WebElement ElectronicsButton;
+@FindBy(id = "FullName")
+private WebElement MyName;
 
-    public void ClickOnElectronicsButton(){
-        ElectronicsButton.clear();
-        ElectronicsButton.click();
-        }
-    @FindBy(linkText = "Contact us")
-    private WebElement ContactUsButton;
+@FindBy(id = "Email")
+private WebElement MyEmail;
+
+@FindBy(id = "Enquiry")
+private WebElement Enquiry;
+
+@FindBy(xpath = "//*[@name='send-email']")
+private  WebElement SubmitBtn;
+
+@FindBy(linkText = "Contact us")
+private WebElement ContactUsButton;
+
+@FindBy(xpath = "//*[@class='result']")
+private WebElement ValidationText;
 
     public void ClickOnContactUsButtons(){
         ContactUsButton.click();
+    }
+    public void EnterMyNameMyEmailAndEnquiry(String myName,String myEmail,String enquiry){
+        MyName.sendKeys(myName);
+        MyEmail.sendKeys(myEmail);
+        Enquiry.sendKeys(enquiry);
+    }
+    public void ClickOnSubmitBtn(){
+        SubmitBtn.click();
+    }
+    public String Validation(){
+        return ValidationText.getText();
 
     }
 }

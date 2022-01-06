@@ -4,6 +4,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import org.example.driver.DriverManager;
 import org.example.pages.HomePage;
+import org.example.pages.LoginPage;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -11,6 +12,7 @@ import static org.hamcrest.Matchers.*;
 public class HomeSteps extends DriverManager {
      DriverManager driverManager = new DriverManager();
      HomePage homePage = new HomePage();
+     LoginPage loginPage=new LoginPage();
 
     @Given("^I am on the home page$")
     public void i_am_on_the_home_page() throws Throwable {
@@ -47,7 +49,7 @@ public class HomeSteps extends DriverManager {
                 homePage.clickOnRegister();
                 break;
             case "Log in":
-                homePage.clickOnLogIn();
+               loginPage.Signin();
                 break;
             default:
                 throw new IllegalAccessException("Unexpected header button");
