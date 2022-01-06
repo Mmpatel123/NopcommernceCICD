@@ -15,14 +15,18 @@ public class LoginPage extends DriverManager {
     @FindBy(id = "Password")
     private WebElement passwordInputText;
 
-    @FindBy(css = ".login-button")
+    @FindBy(css = ".ico-login")
     private WebElement logInSubmitButton;
-
+@FindBy(css = ".login-button")
+private WebElement SignIn;
     @FindBy(css = ".ico-logout")
     private WebElement logOutButton;
 
     public String getWelcomeSignInText(){
        return welcomeSignInText.getText();
+    }
+    public void Signin(){
+        SignIn.click();
     }
 
     public void enterEmailAndPassword(String email, String password) {
